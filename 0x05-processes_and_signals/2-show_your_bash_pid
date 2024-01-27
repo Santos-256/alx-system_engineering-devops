@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Displays a list of currently running processes containing the bash keyword.
+# Thus allowing user to get the bash key word easly.
+# shellcheck disable=SC2009
+
+ps -aux | grep bash
