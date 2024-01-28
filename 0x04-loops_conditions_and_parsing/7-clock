@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Displays the time for 12 horus and 59 minutes.
+#   Displays hours from 0 to 12
+#   Displays minutes from 1 to 59
+
+sixty_min=0
+
+while [ $sixty_min -le 12 ]
+do
+  echo "Hour: $sixty_min"
+  sixty_sec=1
+  while [ $sixty_sec -le 59 ]
+  do
+    echo "$sixty_sec"
+    (( sixty_sec++ ))
+  done
+  (( sixty_min++ ))
+done
