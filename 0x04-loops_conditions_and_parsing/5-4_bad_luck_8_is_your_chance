@@ -17,3 +17,5 @@ do
   else
     echo "Best School"
   fi
+  ((num++))
+done
