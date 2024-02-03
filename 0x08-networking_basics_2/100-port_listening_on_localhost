@@ -1,4 +1,4 @@
-!/usr/bin/env bash
+#!/usr/bin/env bash
 # Listens on port 98 on localhost.
 # Specifies the Bash interpreter to use.
 
