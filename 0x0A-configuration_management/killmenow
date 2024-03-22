@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# This script creates an infinite loop that sleeps for 2 seconds each iteration
+
+# Start an infinite loop
+while [[ true ]]
+do
+ # Sleep for 2 seconds
+      sleep 2
+done
