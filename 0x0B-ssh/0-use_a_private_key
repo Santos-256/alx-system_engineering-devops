@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# SSH connection parameters
+private_key="~/.ssh/school"
+user="ubuntu"
+server="172.17.0.4"
+
+# Connect using SSH
+ssh -i "$private_key" "$user"@"$server"
