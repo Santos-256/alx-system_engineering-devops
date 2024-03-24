@@ -4,5 +4,5 @@
 private_key="~/.ssh/school"
 user="ubuntu"
 server="172.17.0.4"
-# Connect using SSH
-ssh -i "~/.ssh/school" "ubuntu"@"172.17.0.4"
+# Connecting using SSH
+ssh -i ~/.ssh/school ubuntu@172.17.0.4
