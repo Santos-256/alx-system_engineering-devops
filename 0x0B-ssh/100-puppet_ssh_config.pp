@@ -9,6 +9,7 @@ file { '/home/ubuntu/.ssh/config':
     Host 172.17.0.4
       IdentityFile ~/.ssh/school
       PasswordAuthentication no
+      Turn off password Authentication
   ",
 }
 
