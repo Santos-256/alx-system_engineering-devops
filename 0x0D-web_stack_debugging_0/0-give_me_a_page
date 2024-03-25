@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# Restart the Apache service to apply the changes
+service apache2 restart
