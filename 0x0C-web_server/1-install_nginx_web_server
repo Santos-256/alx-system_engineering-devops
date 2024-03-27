@@ -1,32 +1,48 @@
 #!/usr/bin/env bash
-# Configures a new ubuntu machine by installing
-# Nginx where it should be listening on port 80
-# Serve a page that would return a Hello World string
-#
+# Configures a new Ubuntu machine by installing Nginx, which should listen on port 80 and serve a page returning a "Hello World" string.
 
-echo -e "Updating and installing Nginx.\n"
-sudo apt-get update -y -qq && \
-	 sudo apt-get install nginx -y
+# Check if the script is run with root privileges
+if [ "$(id -u)" -ne 0 ]; then
+    echo "Please run this script with sudo or as root."
+    exit 1
+fi
 
-echo -e "\nSetting up some minor stuff.\n"
+# Update package lists and install Nginx
+echo "Updating package lists and installing Nginx..."
+apt-get update -qq && apt-get install -y nginx
 
-# start nginx service
-sudo service nginx start
+# Check if Nginx installation was successful
+if [ $? -ne 0 ]; then
+    echo "Nginx installation failed. Exiting."
+    exit 1
+fi
 
-# allow nginx on firewall
-sudo ufw allow 'Nginx HTTP'
+# Start Nginx service if not already running
+if systemctl is-active --quiet nginx; then
+    echo "Nginx is already running."
+else
+    echo "Starting Nginx service..."
+    systemctl start nginx
+fi
 
-# Give the user ownership to website files for easy editing
-sudo chown -R "$USER":"$USER" /var/www/html
-sudo chmod -R 755 /var/www
+# Allow Nginx through the firewall
+echo "Allowing Nginx through the firewall..."
+ufw allow 'Nginx HTTP'
 
-# Backup default index
+# Set appropriate permissions and ownership for web directory
+echo "Setting permissions and ownership for web directory..."
+chown -R www-data:www-data /var/www/html
+chmod -R 755 /var/www/html
+
+# Backup default index file
 cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.bckp
 
-# Creat new index
-echo -e "Hello World!" | dd status=none of=/var/www/html/index.nginx-debian.html
+# Create a new index file with "Hello World!" content
+echo "Creating index file with 'Hello World!' content..."
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
 
-# Restart nginx
-sudo service nginx restart
+# Restart Nginx to apply changes
+echo "Restarting Nginx..."
+systemctl restart nginx
 
-echo -e "\nCompleted. ✅\n"
+echo "Nginx configuration completed. ✅"
