@@ -9,8 +9,11 @@ apt-get install -y nginx
 # Configure Nginx to listen on port 80
 sed -i 's/listen 80 default_server;/listen 80;/g' /etc/nginx/sites-available/default
 
-# Restart Nginx by killing the process
-kill -s HUP $(pgrep nginx)
+# Restart Nginx gracefully
+service nginx restart
+
+# Wait for Nginx to start (optional, but recommended)
+sleep 2
 
 # Create index.html with "Hello World!" in document root
 echo "Hello World!" > /var/www/html/index.html
