@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
-# Define the content
-CONFIG_CONTENT="# ssh configuration to a server without typing a password.
-                Host *
-                IdentityFile ~/.ssh/school
-                PasswordAuthentication no"
+file { 'etc/ssh/ssh_config':
+        ensure => present,
+content =>"
 
-# Echo content into the ssh_config file
-echo "$CONFIG_CONTENT" | sudo tee /etc/ssh/ssh_config > /dev/null
+         # ssh configuration to a server without typing a password.
+         host*
+         IdentityFile ~/.ssh/school
+         PasswordAuthentication no
+         "
+ }
