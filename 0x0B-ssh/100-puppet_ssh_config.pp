@@ -4,8 +4,8 @@ file { 'etc/ssh/ssh_cofig':
   ensure => present,
 
   content => "
-    # ssh configuration
-    Host 100.25.48.208
+    # ssh configuration to a server without typing a password.
+    Host*
       IdentityFile ~/.ssh/school
       PasswordAuthentication no
       ",
