@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 
-file { 'etc/ssh/ssh_cofig':
-  ensure => present,
+file { 'etc/ssh/ssh_config':
+	ensure => present,
+content =>"
 
-  content => "
-    # ssh configuration to a server without typing a password.
-    Host*
-      IdentityFile ~/.ssh/school
-      PasswordAuthentication no
-      ",
-}
-
+	 # ssh configuration to a server without typing a password.
+	 host*
+	 IdentityFile ~/.ssh/school
+	 PasswordAuthentication no
+	 "
+ }
