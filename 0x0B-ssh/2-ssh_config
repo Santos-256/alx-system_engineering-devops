@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 # SSH client configuration
-# Specify the host for which the following configurations will apply
-Host 172.17.0.4
 # Specify the location of the private key file to be used for authentication
     IdentityFile ~/.ssh/school
 

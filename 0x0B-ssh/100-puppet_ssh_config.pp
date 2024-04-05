@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-file { '/home/ubuntu/.ssh/config':
+file { 'etc/ssh/config':
   ensure => present,
   mode   => '0644',
   owner  => 'ubuntu',
@@ -9,7 +9,6 @@ file { '/home/ubuntu/.ssh/config':
     Host 172.17.0.4
       IdentityFile ~/.ssh/school
       PasswordAuthentication no
-      Turn off password Authentication
-  ",
+      ",
 }
 

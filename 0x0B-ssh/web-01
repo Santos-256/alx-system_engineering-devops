@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Start an SSH agent and set up the necessary environment variables.
+eval $("ssh-agent")
+
+# Add the SSH private key located at ~/.ssh/school to the SSH agent.
+ssh-add ~/.ssh/school
+
+# Connect to the remote server with the specified username (ubuntu) and IP address (100.25.48.208) using SSH.
+ssh ubuntu@100.25.48.208
