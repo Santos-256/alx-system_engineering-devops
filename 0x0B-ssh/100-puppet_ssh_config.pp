@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-file { 'etc/ssh/ssh_config':
+file { 'etc/ssh/ssh_cofig':
 	ensure => present,
 content =>"
 
