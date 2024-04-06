@@ -7,15 +7,11 @@ sudo apt-get update
 sudo apt-get install -y nginx
 
 sudo ufw 'Nginx HTTP'
-# Restart Nginx gracefully
-sudo service nginx restart
-
-# Reload Nginx
-sudo service nginx reload
 
 # Create index.html with "Hello World!" in document root
 echo "Hello World!" > /var/www/html/index.html
 # Testing Nginx Configuration
 sudo nginx -t
 
-
+# Reload Nginx
+sudo service nginx reload
